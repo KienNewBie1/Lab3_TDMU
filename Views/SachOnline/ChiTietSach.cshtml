@@ -1,0 +1,27 @@
+﻿
+@{@model IEnumerable<SachOnline.Models.Book>  
+{  
+ViewBag.Title = "ChiTietSach";
+Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="thumbnail">
+    <h4 class="tensach">
+        @Model.NameBook;
+    </h4>
+    <img src="~/Images/@Model.AnhBia" alt="@Model.NameBook">
+    <div class="motasach">
+        <p>
+            @Html.Raw(@Model.ChiTiet.ToString().Replace("\n", "</p><p>&nbsp&nbsp&nbsp&nbsp"))
+        </p>
+    </div>
+
+    <p class="ngaycapnhat">Ngày cập nhật: @Html.FormatValue(Model.Publication_date, "{0:dd/MM/yyyy}")</p>
+    <p class="giaban">Giá bán: @Html.FormatValue(Model.GiaBan, "{0:#,##0}")</p>
+    <p class="addtocard">
+        <a href=" @Url.Action("Addtocard", "ShoppingCard") new { id =@Model.BookID}"
+           class="btn btn-primary" role="button">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart
+        </a>
+    </p>
+
+</div>

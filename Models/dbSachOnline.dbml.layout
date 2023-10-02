@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="dbSachOnline">
+  <DataContextMoniker Name="/dbSachOnlineDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e59f79f7-745d-4dd3-aaf6-52f8fc47ecc3" absoluteBounds="0.5, 3.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbSachOnlineDataContext/Publisher" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d80a120e-4cfa-46a3-959d-1b019a1ce134" absoluteBounds="0.515, 4.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="31f858bd-13e1-4c43-b89c-4c3a3b3c89cd" absoluteBounds="0.625, 1.125, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/dbSachOnlineDataContext/ChuDe" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ebdfc7b1-1ae2-408b-a39b-8d0732badc87" absoluteBounds="0.64, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0e9b3974-53e9-4338-b680-71827ab095c1" absoluteBounds="6.25, 1.25, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/dbSachOnlineDataContext/Book_author" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ad6e8087-3686-480c-8d40-e249542cca49" absoluteBounds="6.265, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3ff3e367-cb89-48ab-9ab3-5c809105ace0" absoluteBounds="3.375, 3.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbSachOnlineDataContext/Author" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f873256-7eb9-4488-8951-14e521406e95" absoluteBounds="3.39, 3.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 3.375); (5.75 : 3); (5.75 : 1.84699625651042); (6.25 : 1.84699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbSachOnlineDataContext/Author/Author_Book_author" />
+      <nodes>
+        <classShapeMoniker Id="3ff3e367-cb89-48ab-9ab3-5c809105ace0" />
+        <classShapeMoniker Id="0e9b3974-53e9-4338-b680-71827ab095c1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="282e3c4b-9aef-424d-a02d-ba930d8e134a" absoluteBounds="6.25, 2.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/dbSachOnlineDataContext/SachBanNhieu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aad23ba6-b867-4375-99a8-13922ec8cd25" absoluteBounds="6.2650000000000006, 3.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="50760eb1-f8f7-4695-a68e-9086e86b333c" absoluteBounds="8.625, 1.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/dbSachOnlineDataContext/KhachHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce355a1a-9eff-4201-848f-62ec8349dc5b" absoluteBounds="8.64, 1.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c6cd4f2a-12fb-4f3a-a8e5-89a2666bb5f3" absoluteBounds="3.375, 0.625, 2, 2.5401025390625">
+      <DataClassMoniker Name="/dbSachOnlineDataContext/Book" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b03e2b8e-613d-42fd-abbe-4529ca7bdbae" absoluteBounds="3.3899999999999997, 1.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 1.48599812825521); (6.25 : 1.48599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbSachOnlineDataContext/Book/Book_Book_author" />
+      <nodes>
+        <classShapeMoniker Id="c6cd4f2a-12fb-4f3a-a8e5-89a2666bb5f3" />
+        <classShapeMoniker Id="0e9b3974-53e9-4338-b680-71827ab095c1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.53125 : 3.875); (0.53125 : 2.77329752604167); (3.375 : 2.77329752604167)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbSachOnlineDataContext/Publisher/Publisher_Book" />
+      <nodes>
+        <classShapeMoniker Id="e59f79f7-745d-4dd3-aaf6-52f8fc47ecc3" />
+        <classShapeMoniker Id="c6cd4f2a-12fb-4f3a-a8e5-89a2666bb5f3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

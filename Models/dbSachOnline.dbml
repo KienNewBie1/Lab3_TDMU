@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SachOnline" Class="dbSachOnlineDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-ROTP5SJ\SQLEXPRESS;Initial Catalog=SachOnline;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SachOnlineConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Publisher" Member="Publishers">
+    <Type Name="Publisher">
+      <Column Name="Publisher_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Publisher_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Publisher_Book" Member="Books" ThisKey="Publisher_id" OtherKey="Publisher_id" Type="Book" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChuDe" Member="ChuDes">
+    <Type Name="ChuDe">
+      <Column Name="MaChuDe" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenChuDe" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Book_author" Member="Book_authors">
+    <Type Name="Book_author">
+      <Column Name="BookID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuthorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Author_Book_author" Member="Author" ThisKey="AuthorID" OtherKey="Author_id" Type="Author" IsForeignKey="true" />
+      <Association Name="Book_Book_author" Member="Book" ThisKey="BookID" OtherKey="BookID" Type="Book" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Author" Member="Authors">
+    <Type Name="Author">
+      <Column Name="Author_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Author_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Author_Book_author" Member="Book_authors" ThisKey="Author_id" OtherKey="AuthorID" Type="Book_author" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SachBanNhieu" Member="SachBanNhieus">
+    <Type Name="SachBanNhieu">
+      <Column Name="MaSach" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenSach" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SoLuongSachDaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AnhSach" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="NgayXuatBan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="MaKH" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TaiKhoan" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Book" Member="Books">
+    <Type Name="Book">
+      <Column Name="BookID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NameBook" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Publication_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Publisher_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AnhBia" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaChuDe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoLuongSachDaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiaBan" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="ChiTiet" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Book_Book_author" Member="Book_author" ThisKey="BookID" OtherKey="BookID" Type="Book_author" Cardinality="One" />
+      <Association Name="Publisher_Book" Member="Publisher" ThisKey="Publisher_id" OtherKey="Publisher_id" Type="Publisher" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
