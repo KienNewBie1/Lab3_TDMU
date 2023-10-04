@@ -28,7 +28,7 @@ namespace SachOnline.Controllers
             var sDiaChi = collection["DiaChi"];
             var sEmail = collection["Email"];
             var sDienThoai = collection["DienThoai"];
-            var dNgaySinh = String.Format("{0:MM/dd/yyyy}", collection["NgaySinh"]);
+            var dNgaySinh = String.Format("{0:dd/MM/yyyy}", collection["NgaySinh"]);
             if (String.IsNullOrEmpty(sHoTen))
             {
                 ViewData["err1"] = "Họ tên không được rỗng";

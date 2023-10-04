@@ -1034,6 +1034,8 @@ namespace SachOnline.Models
 		
 		private string _ChiTiet;
 		
+		private System.Nullable<System.DateTime> _NgayCapNhat;
+		
 		private EntityRef<Book_author> _Book_author;
 		
 		private EntityRef<Publisher> _Publisher;
@@ -1060,6 +1062,8 @@ namespace SachOnline.Models
     partial void OnGiaBanChanged();
     partial void OnChiTietChanging(string value);
     partial void OnChiTietChanged();
+    partial void OnNgayCapNhatChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayCapNhatChanged();
     #endregion
 		
 		public Book()
@@ -1249,6 +1253,26 @@ namespace SachOnline.Models
 					this._ChiTiet = value;
 					this.SendPropertyChanged("ChiTiet");
 					this.OnChiTietChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayCapNhat", DbType="Date")]
+		public System.Nullable<System.DateTime> NgayCapNhat
+		{
+			get
+			{
+				return this._NgayCapNhat;
+			}
+			set
+			{
+				if ((this._NgayCapNhat != value))
+				{
+					this.OnNgayCapNhatChanging(value);
+					this.SendPropertyChanging();
+					this._NgayCapNhat = value;
+					this.SendPropertyChanged("NgayCapNhat");
+					this.OnNgayCapNhatChanged();
 				}
 			}
 		}

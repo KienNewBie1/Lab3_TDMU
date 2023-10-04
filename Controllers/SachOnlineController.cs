@@ -48,5 +48,10 @@ namespace SachOnline.Controllers
             var sach = from s in data.Books where s.MaChuDe == id select s;
             return View(sach);
         }
+        public ActionResult SachTheoNhaXuatBan(int id)
+        {
+            var sach = from s in data.Books where s.Publisher_id == id select s;
+            return View(sach);
+        }
     }
 }

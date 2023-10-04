@@ -60,6 +60,7 @@
       <Column Name="SoLuongSachDaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="GiaBan" Type="System.String" DbType="Char(30)" CanBeNull="true" />
       <Column Name="ChiTiet" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="Book_Book_author" Member="Book_author" ThisKey="BookID" OtherKey="BookID" Type="Book_author" Cardinality="One" />
       <Association Name="Publisher_Book" Member="Publisher" ThisKey="Publisher_id" OtherKey="Publisher_id" Type="Publisher" IsForeignKey="true" />
     </Type>

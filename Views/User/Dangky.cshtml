@@ -12,7 +12,7 @@
 
 <h4 style="color: red; text-align: center;">@ViewBag.ThongBao</h4>
 <table align="center">
-    <h2 style="text-align: center;">ĐĂNG KÝ THÀNH VIÊN</h2>
+    <h2 style="text-align: center">ĐĂNG KÝ THÀNH VIÊN</h2>
     @using (Html.BeginForm("DangKy", "User"))
     {
         @Html.ValidationSummary(true)
@@ -43,7 +43,7 @@
         </tr>
         <tr>
             <td>Ngày sinh:</td>
-            <td><input type="text" name="NgaySinh" id=""></td>
+            <td><input type="date" name="NgaySinh" id=""></td>
         </tr>
         <tr>
             <td>Địa chỉ:</td>
