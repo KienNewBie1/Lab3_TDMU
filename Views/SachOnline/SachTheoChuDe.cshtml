@@ -3,7 +3,7 @@
     ViewBag.Title = "SachTheoChuDe";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h2 class="text-center">SÁCH THEO CHỦ ĐỀ</h2>
 <hr>
 <div class="row text-center">
@@ -14,17 +14,17 @@
                      class="img-responsive img-rounded imgbook" />
                 <div class="caption">
                     <h4 style="min-height:70px">
-                        <a href="@Url.Action("ChiTietSach","SachOnline",new {id = sach.BookID  })">
+                        <a href="@Url.Action("ChiTietSach","SachOnline",new {id = sach.MaChuDe})">
                             @sach.NameBook
                         </a>
                     </h4>
+
                     <p>
-                        <a href="#" class="btn btn-primary" role="button">
-                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
-
-                            </span> Add to Cart
-
-                        </a>
+                    <p class="giaban" style="padding-left:49px;">Giá Bán: <span style="color:cornflowerblue;">@Html.FormatValue(sach.GiaBan, "{0:#,##0}") VNĐ</span></p>
+                    <a href="@Url.Action("ThemGioHang","GioHang" ,new {ms = sach.BookID,url = Request.Url.ToString()})" class="btn btn-primary" role="button">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                        </span> Add to Cart
+                    </a>
                     </p>
                 </div>
             </div>

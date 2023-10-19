@@ -16,7 +16,7 @@
     <p class="ngaycapnhat">Ngày Cập Nhật: @Html.FormatValue(Model.NgayCapNhat, "{0:dd-MM-yyyy HH:mm tt}")</p>
     <p class="giaban" style="padding-left:495px;">Giá Bán: <span style="color:cornflowerblue;">@Html.FormatValue(Model.GiaBan, "{0:#,##0}") VNĐ</span></p>
     <p class="addtocard" style="padding-left:510px;">
-        <a href="@Url.Action("AddToCard","ShoppingCard") new {id = @Model.NameBook}"
+        <a href="@Url.Action("ThemGioHang","GioHang" ,new {ms = @Model.BookID ,url = Request.Url.ToString()})"
            class="btn btn-primary" role="button">
             <span class="glyphicon glyphincon-shopping-cart"
                   aria-hidden="true"></span>

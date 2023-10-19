@@ -13,7 +13,7 @@ namespace SachOnline.Controllers
         private List<Book> LaySachMoi(int count)
         {
             return data.Books.OrderByDescending(a =>
-            a.Publication_date).Take(count).ToList();
+            a.NgayCapNhat).Take(count).ToList();
         }
         // GET: SachOnline
         public ActionResult Index()

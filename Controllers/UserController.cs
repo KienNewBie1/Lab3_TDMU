@@ -20,7 +20,6 @@ namespace SachOnline.Controllers
         [HttpPost]
         public ActionResult Dangky(FormCollection collection, KhachHang kh)
         {
-
             var sHoTen = collection["HoTen"];
             var sTenDN = collection["TenDN"];
             var sMatKhau = collection["MatKhau"];
@@ -45,7 +44,7 @@ namespace SachOnline.Controllers
             {
                 ViewData["err4"] = "Phải nhập lại mật khẩu";
             }
-            else if(sMatKhau != sMatKhauNhapLai)
+            else if (sMatKhau != sMatKhauNhapLai)
             {
                 ViewData["err4"] = "Mật khẩu nhập lại không khớp";
             }
@@ -57,11 +56,12 @@ namespace SachOnline.Controllers
             {
                 ViewData["err6"] = "Số điện thoại không được rỗng";
             }
-            else if (db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTenDN)!= null)
+            else if (db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTenDN) != null)
             {
                 ViewBag.ThongBao = "Tên đăng nhật đã tồn tại";
             }
-            else if (db.KhachHangs.SingleOrDefault(n => n.Email == sEmail) != null) {
+            else if (db.KhachHangs.SingleOrDefault(n => n.Email == sEmail) != null)
+            {
                 ViewBag.ThongBao = "Email đã được sử dụng";
             }
             else
@@ -76,9 +76,9 @@ namespace SachOnline.Controllers
                 db.SubmitChanges();
                 return RedirectToAction("DangNhap");
             }
-
             return this.Dangky();
         }
+
         [HttpGet]
         public ActionResult DangNhap()
         {
@@ -101,7 +101,7 @@ namespace SachOnline.Controllers
             else
             {
                 KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTenDN && n.MatKhau == sMatKhau);
-                if(kh != null)
+                if (kh != null)
                 {
                     ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
                     Session["TaiKhoan"] = kh;
