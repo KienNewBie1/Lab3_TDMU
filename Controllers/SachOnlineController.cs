@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SachOnline.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace SachOnline.Controllers
 {
@@ -16,10 +18,12 @@ namespace SachOnline.Controllers
             a.NgayCapNhat).Take(count).ToList();
         }
         // GET: SachOnline
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var listSachMoi = LaySachMoi(6);
-            return View(listSachMoi);
+            var listSachMoi = LaySachMoi(20);
+            int iSize = 3;
+            int iPageNum = (page ?? 1);
+            return View(listSachMoi.ToPagedList(iPageNum, iSize));
         }
         // GET: SachOnline
         public ActionResult SachBanNhieuPartial()
@@ -43,15 +47,22 @@ namespace SachOnline.Controllers
                        select s;
             return View(sach.Single());
         }
-        public ActionResult SachTheoChuDe(int id)
+        public ActionResult SachTheoChuDe(int id, int? page)
         {
+            ViewBag.MaCD = id;
+            int iSize = 3;
+            int iPageNum = (page ?? 1);
+
             var sach = from s in data.Books where s.MaChuDe == id select s;
-            return View(sach);
+            return View(sach.ToPagedList(iPageNum, iSize));
         }
-        public ActionResult SachTheoNhaXuatBan(int id)
+        public ActionResult SachTheoNhaXuatBan(int id, int? page)
         {
+            ViewBag.MaChuDe = id;
+            int iSize = 3;
+            int iPageNum = (page ?? 1);
             var sach = from s in data.Books where s.Publisher_id == id select s;
-            return View(sach);
+            return View(sach.ToPagedList(iPageNum, iSize));
         }
     }
 }

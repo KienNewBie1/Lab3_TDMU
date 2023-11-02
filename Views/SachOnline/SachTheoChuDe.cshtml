@@ -1,13 +1,16 @@
-﻿@model IEnumerable<SachOnline.Models.Book>
+﻿@model PagedList.PagedList<SachOnline.Models.Book>
+@using SachOnline.Models;
+@using PagedList.Mvc;
+
 @{
     ViewBag.Title = "SachTheoChuDe";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h2 class="text-center">SÁCH THEO CHỦ ĐỀ</h2>
 <hr>
 <div class="row text-center">
-    @foreach (var sach in Model){
+    @foreach (var sach in Model)
+    {
         <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
             <div class="thumbnail">
                 <img src="~/Images/@sach.AnhBia" alt="@sach.NameBook"
@@ -31,6 +34,15 @@
 
         </div>
     }
+    @*Tạo liên kết các trang*@
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("SachTheoChuDe", new { id = ViewBag.MaCD, page = page }))
+    </div>
 
-</div>
-
+    <style>
+        .MenuTrang {
+            display: inline;
+            text-align: center;
+        }
+    </style>

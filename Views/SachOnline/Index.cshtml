@@ -1,4 +1,7 @@
-﻿@model IEnumerable<SachOnline.Models.Book>
+﻿
+@model PagedList.PagedList<SachOnline.Models.Book>
+@using SachOnline.Models;
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -18,6 +21,7 @@
     .imgsachbannhieu {
         width: 100px;
     }
+
     .navbar {
         overflow: hidden;
         background-color: #333;
@@ -70,14 +74,13 @@
             text-align: left;
         }
 
-        .dropdown-content a:hover {
+            .dropdown-content a:hover {
                 background-color: #ddd;
-        }
+            }
 
-        .dropdown:hover .dropdown-content {
-            display:block;
-        }
-
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 </style>
 
 <h2 class="text-center">SÁCH MỚI</h2>
@@ -102,7 +105,7 @@
                         <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
                         </span> Add to cart
                     </a>
-                    </p>
+                    @*</p>*@
                 </div>
             </div>
         </div>
@@ -169,19 +172,15 @@
         </div>*@
 </div>
 
-<nav class="text-center">
-    <!-- Add class .pagination-lg for larger blocks or .pagination-sm for smaller blocks-->
-    <ul class="pagination">
-        <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li class="disabled"><a href="#">5</a></li>
-        <li>
-            <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+@*Tạo liên kết các trang*@
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+
+    <style>
+        .MenuTrang {
+            display: inline;
+            text-align: center;
+        }
+    </style>

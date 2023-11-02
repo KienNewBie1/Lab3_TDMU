@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using SachOnline.Models;
 
 namespace SachOnline.Controllers
@@ -112,12 +113,13 @@ namespace SachOnline.Controllers
         {
             if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
             {
-                return RedirectToAction("DangNhap", "User");
+                return RedirectToAction("DangNhap", "NguoiDung");
             }
             if (Session["GioHang"] == null)
             {
                 return RedirectToAction("Index", "SachOnline");
             }
+            // lay hang tu session
             List<GioHang> lstGioHang = LayGioHang();
             ViewBag.TongSoLuong = TongSoLuong();
             ViewBag.TongTien = TongTien();
@@ -155,6 +157,14 @@ namespace SachOnline.Controllers
         public ActionResult XacNhanDonHang()
         {
             return View();
+        }
+        public ActionResult Dangxuat()
+        {
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
+            return RedirectToAction("Index", "SachOline");
         }
     }
 }

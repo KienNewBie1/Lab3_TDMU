@@ -93,13 +93,18 @@ namespace SachOnline.Controllers
                 KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == tendn && n.MatKhau == matkhau);
                 if (kh != null)
                 {
-                    ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
+                    //ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
                     Session["Taikhoan"] = kh;
+                    return RedirectToAction("GioHang", "GioHang");
                 }
                 else
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
             }
             return View();
+        }
+        public ActionResult LoginLogoutPartial()
+        {
+            return PartialView("LoginLogoutPartial");
         }
     }
 }

@@ -12,9 +12,6 @@
 <body>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar1" style="background-color:black">
-        @*<div class="navbar-header">
-            @Html.ActionLink("SachOnline", "Index", "SachOnline")
-        </div>*@
         <ul class="nav navbar-nav">
             <li><a href="~/SachOnline/Index">SachOnline</a> </li>
             <li class="active"><a href="#">TRANG CHỦ</a> </li>
@@ -23,17 +20,19 @@
 
         </ul>
 
+
         <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
-               @Html.Action("LoginLogoutPartial","NguoiDung");
+                @Html.ActionLink("Đăng ký", "Dangky", "NguoiDung")
             </li>
-            @*<li>@Html.ActionLink("Đăng nhập", "Dangnhap", "NguoiDung")</li>*@
-            @*@Html.Action("NguoiDung", "LoginLogoutPartial")*@
+            <li>@Html.ActionLink("Đăng nhập", "Dangnhap", "NguoiDung")</li>
             <li class="nav-item">
-                @*<a href="@Url.Action("GioHang","GioHang")">
+                <a href="@Url.Action("GioHang","GioHang")">
                     Giỏ Hàng
-                </a>*@
-                @Html.Action("GioHangPartial","GioHang")
+                </a>
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Sách Mới", "Index", "SachOnline")
             </li>
         </ul>
         <form class="navbar-form navbar-right" role="search">
@@ -43,21 +42,7 @@
             <button type="submit" class="btn btn-default">Tìm</button>
         </form>
     </div>
-    @*<div class="navbar">
-            <li>@Html.ActionLink("Sách Theo Chủ Đề", "SachTheoChuDe", "SachOnline")"</li>
-            <li>@Html.ActionLink("Sách Mới","Index","SachOnline")</li>
-            <li>@Html.ActionLink("Trang Chủ", "Index", "SachOnline")"</li>
-            <a href="#news">Đăng Ký</a>
-            <li>@Html.ActionLink("Đăng nhập", "Dangnhap", "User")"</li>
-            <input value="" placeholder="Tìm Kiếm...." name="tìm kiếm" />
-        </div>*@
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        @Html.Action("NhaXuatBanPartial", "SachOnline")
-        @Html.Action("ChuDePartial", "SachOnline")
-    </div>
-
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        @RenderBody()
-    </div>
+    @RenderBody()
+    <!-- /.navbar-collapse -->
 </body>
 </html>

@@ -1,0 +1,19 @@
+﻿@using SachOnline.Models @{
+    KhachHang kh = (KhachHang)Session["TaiKhoan"];
+}    
+@if (Session["TaiKhoan"] == null) //Giao diện Login //Tùy chọn để hiển thị
+{
+    <li class="nav-item">
+        @Html.ActionLink("Đăng ký", "Dangky", "NguoiDung")
+    </li>
+    @*<li>@Html.ActionLink("Đăng nhập", "Dangnhap", "NguoiDung")</li>*@
+    <li><a href="~/NguoiDung/DangNhap?id=1"> Đăng Nhập</a></li>
+
+}
+else  //Giao diện Logout
+{
+    <li><a href="#">Xin chào:@kh.HoTen</a></li>
+    <li class="nav-item">
+        @Html.ActionLink("Đăng Xuất", "Index", "SachOnline")
+    </li>
+}
